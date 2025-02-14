@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine</title>
+    <style>
+      body {
+        background: linear-gradient(to bottom, pink, white);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        position: relative;
+      }
+      h1 {
+        font-size: 3em;
+        color: white;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 1.2em;
+        color: white;
+        margin-bottom: 20px;
+      }
+      button {
+        background-color: rgb(133, 25, 25);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      button:hover {
+        background-color: darkred;
+      }
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 1.5em;
+        top: -10vh;
+        animation: fall linear infinite;
+      }
+      @keyframes fall {
+        from {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Happy Valentine Day sayangku</h1>
+    <p>
+      makasi atas semua waktu yang telah kamu habiskan bersamaku, i love you
+      sayang
+    </p>
+    <button onclick="sayLove()">klik aku ❤️</button>
+
+    <script>
+      function sayLove() {
+        alert("aku sayang kamu ❤️");
+      }
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-10vh";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      setInterval(createHeart, 200);
+    </script>
+  </body>
+</html>
